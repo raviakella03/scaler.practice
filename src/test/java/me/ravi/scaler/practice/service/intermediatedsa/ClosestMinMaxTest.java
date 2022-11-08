@@ -41,4 +41,10 @@ class ClosestMinMaxTest {
         A = new ArrayList<>(Arrays.asList(4, 4, 4, 4, 4));
         expectedOutput = 1;
     }
+
+    @Test
+    public void scenario4() {
+        A = new ArrayList<>(Arrays.asList(834, 563, 606, 221, 165));
+        expectedOutput = 5;
+    }
 }

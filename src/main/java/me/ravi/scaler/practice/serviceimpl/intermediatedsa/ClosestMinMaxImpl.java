@@ -9,24 +9,19 @@ import java.util.ArrayList;
 public class ClosestMinMaxImpl implements ClosestMinMax {
     @Override
     public int solve(ArrayList<Integer> A) {
-        int min = A.get(0);
-        int max = A.get(0);
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         int maxIndex = -1;
         int minIndex = -1;
-        int minLength = A.size();
+        int minLength = Integer.MAX_VALUE;
 
         /**
          * Finding min in the array
          */
-        for (int i = 1; i < A.size(); i++) {
+        for (int i = 0; i < A.size(); i++) {
             if (A.get(i) < min) {
                 min = A.get(i);
             }
-        }
-        /**
-         * Finding max in the array
-         */
-        for (int i = 1; i < A.size(); i++) {
             if (A.get(i) > max) {
                 max = A.get(i);
             }
@@ -40,24 +35,13 @@ public class ClosestMinMaxImpl implements ClosestMinMax {
             } else if (A.get(i) == min) {
                 minIndex = i;
             }
-
             if (minIndex == -1 || maxIndex == -1) {
                 continue;
             }
-
-            if (minLength == -1) {
-                minLength = Math.abs(minIndex - maxIndex) + 1;
-            } else if (minLength == 1) {
+            if (minLength == 1) {
                 break;
-            } else if (minLength > Math.abs(minIndex - maxIndex) + 1) {
-                minLength = Math.abs(minIndex - maxIndex) + 1;
             }
-
-            if (A.get(i) == max) {
-                minIndex = -1;
-            } else if (A.get(i) == min) {
-                maxIndex = -1;
-            }
+            minLength = Math.min(minLength, Math.abs(minIndex - maxIndex) + 1);
         }
         return minLength;
     }

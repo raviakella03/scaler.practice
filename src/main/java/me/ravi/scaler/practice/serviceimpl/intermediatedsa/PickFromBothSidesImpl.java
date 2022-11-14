@@ -24,4 +24,23 @@ public class PickFromBothSidesImpl implements PickFromBothSides {
         }
         return maxSum;
     }
+
+    @Override
+    public int solve2(ArrayList<Integer> A, int B) {
+        int arraySize = A.size();
+        int leftSum = 0;
+        int rightSum = 0;
+        int maxSum = 0;
+        for (int i = arraySize - 1; i >= arraySize - B; i--) {
+            rightSum += A.get(i);
+        }
+        maxSum = rightSum;
+
+        for (int i = 0; i < B; i++) {
+            leftSum += A.get(i);
+            rightSum -= A.get(arraySize - B + i);
+            maxSum = Math.max(maxSum, leftSum + rightSum);
+        }
+        return maxSum;
+    }
 }

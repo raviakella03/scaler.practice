@@ -21,7 +21,6 @@ class RowSumTest extends AbstractTest {
     @Override
     public void checkOutput() {
         assertIterableEquals(expectedResult, rowSum.solve(A));
-        A.clear();
     }
 
     @Test

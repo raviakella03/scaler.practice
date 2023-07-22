@@ -29,6 +29,26 @@ public class AntiDiagonalsImpl implements AntiDiagonals {
      */
     @Override
     public ArrayList<ArrayList<Integer>> diagonal(ArrayList<ArrayList<Integer>> A) {
-        return null;
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int matrixSize = A.size();
+        for (int i = 0; i < 2 * matrixSize - 1; i++) {
+            int offset;
+            if (i < matrixSize) {
+                offset = 0;
+            } else {
+                offset = i - matrixSize + 1;
+            }
+            ArrayList<Integer> antiDiagonal = new ArrayList<>();
+            int k = 0;
+            for (int j = offset; j <= i - offset; j++) {
+                antiDiagonal.add(A.get(j).get(i - j));
+                ++k;
+            }
+            for (int j = k; j < matrixSize; j++) {
+                antiDiagonal.add(0);
+            }
+            result.add(antiDiagonal);
+        }
+        return result;
     }
 }

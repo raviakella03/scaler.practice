@@ -47,4 +47,50 @@ public class SpecialIndexImpl implements SpecialIndex {
         }
         return returnCount;
     }
+
+    /*public int solve(ArrayList<Integer> A) {
+        int arraySize = A.size();
+        if (arraySize == 1) {
+            return 1;
+        } else if (arraySize == 2) {
+            return 0;
+        }
+        int returnCount = 0;
+        int evenSum = 0;
+        int oddSum = 0;
+        for (int i = 0; i < arraySize; i++) {
+            if (i % 2 == 0) {
+                evenSum += A.get(i);
+            } else {
+                oddSum += A.get(i);
+            }
+        }
+        int currentOddSum = 0;
+        int currentEvenSum = A.get(0);
+        int newOddSum = 0;
+        int newEvenSum = 0;
+        for (int i = 1; i < arraySize - 1; i++) {
+            if (i % 2 == 0) {
+                currentEvenSum += A.get(i);
+                newOddSum = currentOddSum + evenSum - currentEvenSum;
+                newEvenSum = currentEvenSum + oddSum - currentOddSum - A.get(i);
+            } else {
+                currentOddSum += A.get(i);
+                newEvenSum = currentEvenSum + oddSum - currentOddSum;
+                newOddSum = currentOddSum + evenSum - currentEvenSum - A.get(i);
+            }
+
+            if (newEvenSum == newOddSum) {
+                ++returnCount;
+            }
+        }
+        if (oddSum == evenSum - A.get(0)) {
+            ++returnCount;
+        }
+
+        if ((arraySize % 2 == 0 && oddSum == evenSum - A.get(arraySize - 1)) || (arraySize % 2 == 1 && evenSum == oddSum - A.get(arraySize - 1))) {
+            ++returnCount;
+        }
+        return returnCount;
+    }*/
 }

@@ -1,4 +1,4 @@
-package me.ravi.scaler.practice.serviceimpl.advanceddsa.adsa1;
+package me.ravi.scaler.practice.serviceimpl.intermediatedsa;
 
 import me.ravi.scaler.practice.service.intermediatedsa.ElementsRemoval;
 
